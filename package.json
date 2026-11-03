@@ -1,0 +1,30 @@
+{
+  "name": "haileysilva",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validate": "node scripts/validate-parties.mjs",
+    "prebuild": "node scripts/validate-parties.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/spa-fallback.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "archive": "node scripts/archive-party.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dancing-script": "^5.2.8",
+    "@fontsource-variable/fredoka": "^5.2.8",
+    "@fontsource-variable/quicksand": "^5.2.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  }
+}
