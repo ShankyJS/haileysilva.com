@@ -117,7 +117,7 @@ export function PartyPage({ party, archived = false }: { party: Party; archived?
         {party.detailsPending ? (
           <p className="pending-note">Details for this party are still being filled in.</p>
         ) : null}
-        <Garland src={party.headImage} name={party.honoree} />
+        <Garland name={party.honoree} />
         <div className="hero">
           <h1 className="hero-title">
             <span className="sr-only">

@@ -5,15 +5,16 @@ type FaceWithHatProps = {
   src: string;
   name: string;
   priority?: boolean;
+  showHat?: boolean;
 };
 
-export function FaceWithHat({ src, name, priority = false }: FaceWithHatProps) {
+export function FaceWithHat({ src, name, priority = false, showHat = true }: FaceWithHatProps) {
   const [failed, setFailed] = useState(false);
   const initial = [...name][0] ?? "?";
 
   return (
-    <span className="face">
-      <PartyHat />
+    <span className={showHat ? "face" : "face no-party-hat"}>
+      {showHat ? <PartyHat /> : null}
       <span className="face-disc">
         {failed ? (
           <span className="face-fallback" aria-hidden="true">
