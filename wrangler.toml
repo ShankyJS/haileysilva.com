@@ -1,0 +1,9 @@
+# Static site for the existing Worker `haileysilva-com`.
+# Workers Builds runs the dashboard build command, then `npx wrangler deploy`.
+# It does not run a build command from this file.
+name = "haileysilva-com"
+compatibility_date = "2026-11-03"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
