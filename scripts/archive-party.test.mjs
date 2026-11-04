@@ -53,7 +53,10 @@ test("the shipped party validates", () => {
   assert.equal(result.ok, true, result.errors.join("\n"));
   assert.equal(result.parties.length, 1);
   assert.equal(result.parties[0].data.status, "current");
-  assert.equal(result.parties[0].data.rsvpUrl, null);
+  assert.equal(
+    result.parties[0].data.rsvpUrl,
+    "https://docs.google.com/forms/d/e/1FAIpQLSehZGFbSRMjpTF1N15-s5qYQVIMTOa9XK4y5voa8kk67kKsFg/viewform",
+  );
 });
 
 test("archive moves the current party and scaffolds the next one", async () => {

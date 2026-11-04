@@ -54,13 +54,7 @@ The date on the invite is Saturday, November 21, 3:00 PM. November 21, 2026 is a
 
 ### RSVP
 
-`rsvpUrl` is `null` on purpose. The home page shows a marked RSVP spot that says the Google Form is still coming. When you have the link, set it and rebuild:
-
-```json
-"rsvpUrl": "https://docs.google.com/forms/d/e/…/viewform"
-```
-
-The button then opens the form. Leave it `null` and the placeholder stays.
+Party 1's `rsvpUrl` is the Google Form. The RSVP button opens it. Set `rsvpUrl` to `null` on a party and the page shows the "coming soon" placeholder again.
 
 The registry button points at `https://getjoybox.com/registry/vGPDe9LZ-wishlist`.
 
