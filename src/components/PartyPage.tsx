@@ -183,7 +183,6 @@ export function PartyPage({ party, archived = false }: { party: Party; archived?
           <Registry party={party} />
           <Rsvp party={party} archived={archived} />
         </div>
-        <p className="party-no">Party no. {party.number}</p>
       </main>
     </Frame>
   );

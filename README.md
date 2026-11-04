@@ -16,7 +16,7 @@ Vite prints a local URL. These routes work in dev and in the production build:
 | Route | What it shows |
 | --- | --- |
 | `/` | The current party |
-| `/archive` | Past parties. Empty until the first one is archived |
+| `/archive` | Little letters for each celebration, including the baby shower at [babysilva.com](https://babysilva.com) |
 | `/archive/1` | Party 1 once it has been archived. Until then, a note that it is still the current party |
 | anything else | A small not-found page inside the same frame |
 
