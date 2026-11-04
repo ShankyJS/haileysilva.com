@@ -429,8 +429,12 @@ a {
 
 .hero-visual {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  column-gap: 0.05rem;
+  row-gap: 0.1rem;
+  max-width: 100%;
 }
 
 .hero-words {
@@ -439,10 +443,12 @@ a {
 
 .script-line {
   order: 1;
+  flex: 1 0 100%;
   font-family: var(--script);
   font-weight: 700;
-  font-size: clamp(2.7rem, 9vw, 4.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.05rem, 7.4vw, 4.5rem);
+  line-height: 1;
+  text-align: center;
   color: var(--gold-display);
 }
 
@@ -451,18 +457,19 @@ a {
 }
 
 .hero-face .face {
-  --face: clamp(124px, 38vw, 164px);
+  --face: clamp(104px, 30vw, 158px);
 }
 
 .hero-letters {
   order: 3;
+  align-self: flex-end;
   max-width: 100%;
-  margin: 0.05em 0 0;
+  margin: 0 0 0.06em;
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(4rem, 22vw, 7rem);
-  line-height: 0.8;
-  letter-spacing: -0.04em;
+  font-size: clamp(4.7rem, 22vw, 7.6rem);
+  line-height: 0.78;
+  letter-spacing: -0.045em;
   color: var(--pink);
   -webkit-text-stroke: 0.03em #fff;
   paint-order: stroke fill;
@@ -921,7 +928,9 @@ a.address-link:hover {
   }
 
   .script-line {
+    flex: none;
     margin: 0 0 0.05em 0.15em;
+    text-align: left;
     font-size: clamp(3rem, 4.6vw, 4.6rem);
   }
 
@@ -930,7 +939,8 @@ a.address-link:hover {
   }
 
   .hero-letters {
-    margin-top: -0.06em;
+    align-self: auto;
+    margin: -0.06em 0 0;
     font-size: clamp(7.5rem, 12vw, 10.8rem);
   }
 
