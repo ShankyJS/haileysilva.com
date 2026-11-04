@@ -30,7 +30,6 @@ export function SiteHeader() {
       <nav className="site-nav" aria-label="Pages">
         <Link to={{ pathname: "/", hash: "rsvp" }}>RSVP</Link>
         <Link to={{ pathname: "/", hash: "registry" }}>Registry</Link>
-        <Link to="/archive">Past parties</Link>
       </nav>
     </header>
   );
@@ -42,8 +41,6 @@ export function SiteFooter() {
     <footer className="site-footer">
       <p>{honoree}</p>
       <p>
-        <Link to="/archive">Past parties</Link>
-        <span aria-hidden="true"> · </span>
         <Link to={{ pathname: "/", hash: "rsvp" }}>RSVP</Link>
       </p>
     </footer>

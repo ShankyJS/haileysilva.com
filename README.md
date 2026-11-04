@@ -16,8 +16,8 @@ Vite prints a local URL. These routes work in dev and in the production build:
 | Route | What it shows |
 | --- | --- |
 | `/` | The current party |
-| `/archive` | Little letters for each celebration, including the baby shower at [babysilva.com](https://babysilva.com) |
-| `/archive/1` | Party 1 once it has been archived. Until then, a note that it is still the current party |
+| `/archive` | Little letters for each celebration, including the baby shower at [babysilva.com](https://babysilva.com). Not linked from the guest site |
+| `/archive/1` | Party 1 once it has been archived. Until then, a note that it is still the current party. Not linked from the guest site |
 | anything else | A small not-found page inside the same frame |
 
 ## Build
@@ -78,7 +78,7 @@ That command:
 2. Creates `src/parties/<next>/party.json` as the new current party, with the date cleared, `rsvpUrl` and `registryUrl` cleared, and `detailsPending: true`. The venue and address are copied so a party at the same house is easy to confirm.
 3. Prints where to put the new cutout: `public/parties/<next>/hailey-head.webp`.
 
-Then edit the new `party.json`, add the photo, and remove `detailsPending` (or set it to `false`) when the details are final. Check it with `npm run dev`. The home page shows the new party, and the previous one is listed on `/archive`.
+Then edit the new `party.json`, add the photo, and remove `detailsPending` (or set it to `false`) when the details are final. Check it with `npm run dev`. The home page shows the new party. The previous one is at `/archive/<number>`, which you open by URL. Nothing in the header, footer, or home page points there, so guests do not discover past parties.
 
 Useful flags:
 

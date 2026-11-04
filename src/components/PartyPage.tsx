@@ -111,10 +111,6 @@ export function PartyPage({ party, archived = false }: { party: Party; archived?
       <main id="content">
         {archived ? (
           <p className="archive-note">
-            Past party
-            <span aria-hidden="true"> · </span>
-            <Link to="/archive">All past parties</Link>
-            <span aria-hidden="true"> · </span>
             <Link to="/">This year's party</Link>
           </p>
         ) : null}
