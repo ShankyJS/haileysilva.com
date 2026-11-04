@@ -1,0 +1,11 @@
+# Static site for the existing Worker `haileysilva-com`.
+# Production builds deploy with `npx wrangler deploy`.
+# Preview builds (any branch other than main) run `npx wrangler preview`,
+# which requires this block. It can be empty: assets stay at the top level.
+name = "haileysilva-com"
+compatibility_date = "2026-11-03"
+previews = { }
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"

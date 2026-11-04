@@ -34,12 +34,40 @@ npm run preview
 
 The site is a static Vite build. Publish the `dist/` folder. Client routes such as `/archive/1` need the host to serve the app for unknown paths.
 
-- **Netlify or Cloudflare Pages.** Build command `npm run build`, publish directory `dist`. `public/_redirects` and `netlify.toml` already send every path to `index.html`.
+### Cloudflare Workers
+
+The production Worker is `haileysilva-com`, connected to this repo through Workers Builds. `wrangler.toml` publishes `dist/` as static assets and serves `index.html` for any path that is not a file, so `/archive` and `/archive/1` load the app.
+
+`wrangler.toml` includes an empty `previews` block. Preview builds run `npx wrangler preview`, and that command refuses to start without it. Assets stay at the top level, so previews upload the same `dist/` as production.
+
+In the dashboard, open **Workers & Pages → haileysilva-com → Settings → Build** and set:
+
+| Setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Preview command | `npx wrangler preview` |
+| Root directory | repository root |
+
+Workers Builds does not run a build command written inside `wrangler.toml`. If the dashboard build command is empty, `npm ci` still builds the site when `WORKERS_CI=1`, which Workers Builds sets, so `dist/` exists before preview or deploy. Setting the build command as well is still the right dashboard setup. The Wrangler commands use the `wrangler` version in `package.json`.
+
+The name does not resolve yet: Cloudflare is the DNS host (`blakely.ns.cloudflare.com` and `wilson.ns.cloudflare.com`), and there is no A, AAAA, or CNAME record for `haileysilva.com` or `www`. After a build succeeds, attach the hostname on the Worker, not with a hand-written IP:
+
+1. **Workers & Pages → haileysilva-com → Settings → Domains & Routes → Add → Custom domain**.
+2. Add `haileysilva.com`. Add `www.haileysilva.com` the same way if that name should serve the site.
+3. Let Cloudflare create the proxied DNS records. Do not point the name at an A record yourself.
+
+`npx wrangler deploy` from a machine logged in with `wrangler login` deploys the same way.
+
+### Other hosts
+
+- **Netlify.** Build command `npm run build`, publish directory `dist`. `netlify.toml` sends every path to `index.html`. There is no `_redirects` file: Workers treats `/* /index.html 200` as a loop, and `wrangler.toml` already serves `index.html` for unknown paths.
 - **Vercel.** Build command `npm run build`, output directory `dist`. `vercel.json` at the repo root has the rewrite.
 - **GitHub Pages** (user site or `haileysilva.com`). Build, then publish `dist`. `404.html` is the app, so a direct visit to `/archive/1` still loads. GitHub serves that file with a 404 status; the page itself renders.
 - **Any other static server.** Fall back to `index.html`. Nginx: `try_files $uri $uri/ /index.html;`. Surge uses the generated `200.html`.
 
-Point the domain at the host as you usually would. The app expects to live at the domain root.
+The app expects to live at the domain root.
 
 ## Where a party lives
 
