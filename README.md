@@ -38,16 +38,19 @@ The site is a static Vite build. Publish the `dist/` folder. Client routes such 
 
 The production Worker is `haileysilva-com`, connected to this repo through Workers Builds. `wrangler.toml` publishes `dist/` as static assets and serves `index.html` for any path that is not a file, so `/archive` and `/archive/1` load the app.
 
-Workers Builds does not run a build command from `wrangler.toml`. In the dashboard, open **Workers & Pages → haileysilva-com → Settings → Build** and set:
+`wrangler.toml` includes an empty `previews` block. Preview builds run `npx wrangler preview`, and that command refuses to start without it. Assets stay at the top level, so previews upload the same `dist/` as production.
+
+In the dashboard, open **Workers & Pages → haileysilva-com → Settings → Build** and set:
 
 | Setting | Value |
 | --- | --- |
 | Production branch | `main` |
 | Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
+| Preview command | `npx wrangler preview` |
 | Root directory | repository root |
 
-Leave the install step to Workers Builds. The deploy command uses the `wrangler` version in `package.json`.
+Workers Builds does not run a build command written inside `wrangler.toml`. If the dashboard build command is empty, `npm ci` still builds the site when `WORKERS_CI=1`, which Workers Builds sets, so `dist/` exists before preview or deploy. Setting the build command as well is still the right dashboard setup. The Wrangler commands use the `wrangler` version in `package.json`.
 
 The name does not resolve yet: Cloudflare is the DNS host (`blakely.ns.cloudflare.com` and `wilson.ns.cloudflare.com`), and there is no A, AAAA, or CNAME record for `haileysilva.com` or `www`. After a build succeeds, attach the hostname on the Worker, not with a hand-written IP:
 

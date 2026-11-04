@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prepare": "node scripts/workers-ci-build.mjs",
     "validate": "node scripts/validate-parties.mjs",
     "prebuild": "node scripts/validate-parties.mjs",
     "build": "tsc --noEmit && vite build && node scripts/spa-fallback.mjs",

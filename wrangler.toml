@@ -1,8 +1,10 @@
 # Static site for the existing Worker `haileysilva-com`.
-# Workers Builds runs the dashboard build command, then `npx wrangler deploy`.
-# It does not run a build command from this file.
+# Production builds deploy with `npx wrangler deploy`.
+# Preview builds (any branch other than main) run `npx wrangler preview`,
+# which requires this block. It can be empty: assets stay at the top level.
 name = "haileysilva-com"
 compatibility_date = "2026-11-03"
+previews = { }
 
 [assets]
 directory = "./dist"
