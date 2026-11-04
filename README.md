@@ -62,7 +62,7 @@ The name does not resolve yet: Cloudflare is the DNS host (`blakely.ns.cloudflar
 
 ### Other hosts
 
-- **Netlify.** Build command `npm run build`, publish directory `dist`. `public/_redirects` and `netlify.toml` send every path to `index.html`.
+- **Netlify.** Build command `npm run build`, publish directory `dist`. `netlify.toml` sends every path to `index.html`. There is no `_redirects` file: Workers treats `/* /index.html 200` as a loop, and `wrangler.toml` already serves `index.html` for unknown paths.
 - **Vercel.** Build command `npm run build`, output directory `dist`. `vercel.json` at the repo root has the rewrite.
 - **GitHub Pages** (user site or `haileysilva.com`). Build, then publish `dist`. `404.html` is the app, so a direct visit to `/archive/1` still loads. GitHub serves that file with a 404 status; the page itself renders.
 - **Any other static server.** Fall back to `index.html`. Nginx: `try_files $uri $uri/ /index.html;`. Surge uses the generated `200.html`.
