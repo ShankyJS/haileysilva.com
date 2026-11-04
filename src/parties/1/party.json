@@ -1,0 +1,28 @@
+{
+  "number": 1,
+  "status": "current",
+  "honoree": "Hailey Silva",
+  "theme": "It's Fun to Be One",
+  "scriptLine": "It's fun to be",
+  "heroWord": "ONE",
+  "invitationLine": "Join us to celebrate",
+  "eventTitle": "Hailey's First Birthday",
+  "schedule": {
+    "startsAt": "2026-11-21T15:00:00-07:00",
+    "timeZone": "America/Vancouver",
+    "weekday": "Saturday",
+    "date": "November 21, 2026",
+    "time": "3:00 PM",
+    "timeNote": "Pacific time"
+  },
+  "venueName": "Our House",
+  "addressLines": [
+    "24951 112 Ave, Unit #122",
+    "Maple Ridge, BC V2W 0L1"
+  ],
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=24951+112+Ave%2C+Unit+%23122%2C+Maple+Ridge%2C+BC+V2W+0L1",
+  "registryUrl": "https://getjoybox.com/registry/vGPDe9LZ-wishlist",
+  "rsvpUrl": "https://docs.google.com/forms/d/e/1FAIpQLSehZGFbSRMjpTF1N15-s5qYQVIMTOa9XK4y5voa8kk67kKsFg/viewform",
+  "headImage": "/parties/1/hailey-head.webp",
+  "blurb": "Her first birthday, at home in Maple Ridge."
+}
